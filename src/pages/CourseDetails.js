@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import CourseContent from "../components/CourseContent";
 
 const CourseDetails = () =>{
     const param = useRoute().params;
     const [course,setCourse] = useState([]);
     const navigation = useNavigation();
+    const [userProgress,setUserProgress] = useState([]);
 
     useEffect(()=>{
         setCourse(param?.courseData);
@@ -27,9 +29,14 @@ const CourseDetails = () =>{
                 <Text style={{marginTop:10,
                fontSize:16, fontWeight:'bold'}}>About Course</Text>
                 <Text 
-                // numberOfLines={4}
+                numberOfLines={4}
                  style={{color:Colors.gray}}>{course.description}</Text>
             </View>
+            <CourseContent
+            course={course}
+            userProgress={userProgress}
+            courseType={param.courseType}
+            />
         </View>
     )
 }
