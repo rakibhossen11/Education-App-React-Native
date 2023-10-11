@@ -19,7 +19,7 @@ const VideoCourseList = () => {
       Topic: item.attributes.VideoTopic,
     }));
     setVideolist(result);
-    console.log(result);
+    // console.log(result);
   };
   return (
     <View style={{marginTop: 15}}>

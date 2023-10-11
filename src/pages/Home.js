@@ -4,6 +4,7 @@ import WelcomeHeader from "../components/WelcomeHeader";
 import SearchBar from "../components/SearchBar";
 import Slider from "../components/Slider";
 import VideoCourseList from "../components/VideoCourseList";
+import Courselist from "../components/Courselist";
 
 const Home = () =>{
     return(
@@ -12,6 +13,7 @@ const Home = () =>{
             <SearchBar />
             <Slider />
             <VideoCourseList />
+            <Courselist type={'basic'} />
         </View>
     )
 }
