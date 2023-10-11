@@ -8,7 +8,7 @@ import CourseChapter from "../pages/CourseChapter";
 const Stack = createStackNavigator();
 const StackNavigation = () =>{
     return(
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{headerShown:false}}>
             <Stack.Screen name="home" component={Home} />
             <Stack.Screen name="course-details" component={CourseDetails} />
             <Stack.Screen name="course-chapter" component={CourseChapter} />

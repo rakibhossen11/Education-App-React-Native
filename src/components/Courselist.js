@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { FlatList, Image, Text, TouchableOpacity, View } from "react-native";
 import GlobalAPI from "../shared/GlobalAPI";
 import Colors from "../shared/Colors";
+import { useNavigation } from '@react-navigation/native';
 
 const Courselist = ({ type }) => {
   const [courselist, setCourselist] = useState([]);
+  const navigation = useNavigation();
+
   useEffect(() => {
     getCourselist();
   }, []);
@@ -21,6 +24,9 @@ const Courselist = ({ type }) => {
     setCourselist(result);
     console.log(result);
   };
+  const onPressCourse = (course) =>{
+    navigation.navigate('course-details',{courseData: course, courseType: 'text'})
+  }
 
   return (
     <View style={{marginTop: 10,}}>
@@ -40,7 +46,7 @@ const Courselist = ({ type }) => {
       showsHorizontalScrollIndicator={false}
       renderItem={({item}) => (
         <TouchableOpacity style={{backgroundColor:Colors.white,marginRight:10,
-            borderRadius:10}}>
+            borderRadius:10}} onPress={()=>onPressCourse(item)}>
             <Image source={{uri:item.image}}  
             style={{width:180,height:100,  
             borderTopLeftRadius:10,borderTopRightRadius:10,
